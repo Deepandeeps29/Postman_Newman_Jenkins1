@@ -1,0 +1,22 @@
+name: API Automation
+
+on: [push]
+
+jobs:
+  api-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run API Tests
+      run: |
+        newman run "C:\Users\Deepan Vinayagam\Downloads\Asset.postman_collection.json" -e "C:\Users\Deepan Vinayagam\Downloads\Pratice.postman_environment.json"
