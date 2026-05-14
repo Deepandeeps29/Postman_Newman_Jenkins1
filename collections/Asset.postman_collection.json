@@ -1,0 +1,666 @@
+{
+  "info": {
+    "_postman_id": "d4e15da0-ea94-4367-9890-513090241940",
+    "name": "Asset",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47086033",
+    "_collection_link": "https://go.postman.co/collection/47086033-d4e15da0-ea94-4367-9890-513090241940?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var template = `\r",
+              "<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+              "\r",
+              "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+              "\r",
+              "<script>\r",
+              "    var ctx = document.getElementById(\"myChart\");\r",
+              "\r",
+              "    var myChart = new Chart(ctx, {\r",
+              "        type: \"bar\",\r",
+              "        data: {\r",
+              "            labels: [\"ID\", \"First Name\", \"Last Name\", \"Email\"],\r",
+              "            datasets: [{\r",
+              "                data: [],\r",
+              "                \r",
+              "                // Change these colours to customize the chart\r",
+              "                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+              "            }]\r",
+              "        },\r",
+              "        options: {\r",
+              "            legend: { display: false },\r",
+              "            title: {\r",
+              "                display: true,\r",
+              "                text: 'User Data Representation'\r",
+              "            },\r",
+              "            scales: {\r",
+              "                xAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Attributes'\r",
+              "                    }\r",
+              "                }],\r",
+              "                yAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Values'\r",
+              "                    }\r",
+              "                }]\r",
+              "            }\r",
+              "        }\r",
+              "\r",
+              "    });\r",
+              "\r",
+              "    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+              "    pm.getData(function (err, value) {\r",
+              "        myChart.data.datasets[0].data = value.response.dataValues;\r",
+              "        myChart.update();\r",
+              "    });\r",
+              "\r",
+              "</script>`;\r",
+              "\r",
+              "function constructVisualizerPayload() {\r",
+              "    var res = pm.response.json();\r",
+              "    \r",
+              "    var visualizerData = {\r",
+              "        dataValues: [\r",
+              "            res.data.id,\r",
+              "            res.data.first_name.length,\r",
+              "            res.data.last_name.length,\r",
+              "            res.data.email.length\r",
+              "        ]\r",
+              "    };\r",
+              "\r",
+              "    return {response: visualizerData};\r",
+              "}\r",
+              "\r",
+              "pm.visualizer.set(template, constructVisualizerPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "free_user_3DiQVzZARZ6jeo32h7cIS9UQVkR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ronald\",\r\n  \"job\": \"Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var template = `\r",
+              "<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+              "\r",
+              "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+              "\r",
+              "<script>\r",
+              "    var ctx = document.getElementById(\"myChart\");\r",
+              "\r",
+              "    var myChart = new Chart(ctx, {\r",
+              "        type: \"bar\",\r",
+              "        data: {\r",
+              "            labels: [\"ID\", \"First Name\", \"Last Name\", \"Email\"],\r",
+              "            datasets: [{\r",
+              "                data: [],\r",
+              "                \r",
+              "                // Change these colours to customize the chart\r",
+              "                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+              "            }]\r",
+              "        },\r",
+              "        options: {\r",
+              "            legend: { display: false },\r",
+              "            title: {\r",
+              "                display: true,\r",
+              "                text: 'User Data Representation'\r",
+              "            },\r",
+              "            scales: {\r",
+              "                xAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Attributes'\r",
+              "                    }\r",
+              "                }],\r",
+              "                yAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Values'\r",
+              "                    }\r",
+              "                }]\r",
+              "            }\r",
+              "        }\r",
+              "\r",
+              "    });\r",
+              "\r",
+              "    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+              "    pm.getData(function (err, value) {\r",
+              "        myChart.data.datasets[0].data = value.response.dataValues;\r",
+              "        myChart.update();\r",
+              "    });\r",
+              "\r",
+              "</script>`;\r",
+              "\r",
+              "function constructVisualizerPayload() {\r",
+              "    var res = pm.response.json();\r",
+              "    \r",
+              "    var visualizerData = {\r",
+              "        dataValues: [\r",
+              "            res.data.id,\r",
+              "            res.data.first_name.length,\r",
+              "            res.data.last_name.length,\r",
+              "            res.data.email.length\r",
+              "        ]\r",
+              "    };\r",
+              "\r",
+              "    return {response: visualizerData};\r",
+              "}\r",
+              "\r",
+              "pm.visualizer.set(template, constructVisualizerPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "free_user_3DiQVzZARZ6jeo32h7cIS9UQVkR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ronald\",\r\n  \"job\": \"Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Copy 2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var template = `\r",
+              "<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+              "\r",
+              "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+              "\r",
+              "<script>\r",
+              "    var ctx = document.getElementById(\"myChart\");\r",
+              "\r",
+              "    var myChart = new Chart(ctx, {\r",
+              "        type: \"bar\",\r",
+              "        data: {\r",
+              "            labels: [\"ID\", \"First Name\", \"Last Name\", \"Email\"],\r",
+              "            datasets: [{\r",
+              "                data: [],\r",
+              "                \r",
+              "                // Change these colours to customize the chart\r",
+              "                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+              "            }]\r",
+              "        },\r",
+              "        options: {\r",
+              "            legend: { display: false },\r",
+              "            title: {\r",
+              "                display: true,\r",
+              "                text: 'User Data Representation'\r",
+              "            },\r",
+              "            scales: {\r",
+              "                xAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Attributes'\r",
+              "                    }\r",
+              "                }],\r",
+              "                yAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Values'\r",
+              "                    }\r",
+              "                }]\r",
+              "            }\r",
+              "        }\r",
+              "\r",
+              "    });\r",
+              "\r",
+              "    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+              "    pm.getData(function (err, value) {\r",
+              "        myChart.data.datasets[0].data = value.response.dataValues;\r",
+              "        myChart.update();\r",
+              "    });\r",
+              "\r",
+              "</script>`;\r",
+              "\r",
+              "function constructVisualizerPayload() {\r",
+              "    var res = pm.response.json();\r",
+              "    \r",
+              "    var visualizerData = {\r",
+              "        dataValues: [\r",
+              "            res.data.id,\r",
+              "            res.data.first_name.length,\r",
+              "            res.data.last_name.length,\r",
+              "            res.data.email.length\r",
+              "        ]\r",
+              "    };\r",
+              "\r",
+              "    return {response: visualizerData};\r",
+              "}\r",
+              "\r",
+              "pm.visualizer.set(template, constructVisualizerPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "free_user_3DiQVzZARZ6jeo32h7cIS9UQVkR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ronald\",\r\n  \"job\": \"Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Copy 3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var template = `\r",
+              "<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+              "\r",
+              "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+              "\r",
+              "<script>\r",
+              "    var ctx = document.getElementById(\"myChart\");\r",
+              "\r",
+              "    var myChart = new Chart(ctx, {\r",
+              "        type: \"bar\",\r",
+              "        data: {\r",
+              "            labels: [\"ID\", \"First Name\", \"Last Name\", \"Email\"],\r",
+              "            datasets: [{\r",
+              "                data: [],\r",
+              "                \r",
+              "                // Change these colours to customize the chart\r",
+              "                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+              "            }]\r",
+              "        },\r",
+              "        options: {\r",
+              "            legend: { display: false },\r",
+              "            title: {\r",
+              "                display: true,\r",
+              "                text: 'User Data Representation'\r",
+              "            },\r",
+              "            scales: {\r",
+              "                xAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Attributes'\r",
+              "                    }\r",
+              "                }],\r",
+              "                yAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Values'\r",
+              "                    }\r",
+              "                }]\r",
+              "            }\r",
+              "        }\r",
+              "\r",
+              "    });\r",
+              "\r",
+              "    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+              "    pm.getData(function (err, value) {\r",
+              "        myChart.data.datasets[0].data = value.response.dataValues;\r",
+              "        myChart.update();\r",
+              "    });\r",
+              "\r",
+              "</script>`;\r",
+              "\r",
+              "function constructVisualizerPayload() {\r",
+              "    var res = pm.response.json();\r",
+              "    \r",
+              "    var visualizerData = {\r",
+              "        dataValues: [\r",
+              "            res.data.id,\r",
+              "            res.data.first_name.length,\r",
+              "            res.data.last_name.length,\r",
+              "            res.data.email.length\r",
+              "        ]\r",
+              "    };\r",
+              "\r",
+              "    return {response: visualizerData};\r",
+              "}\r",
+              "\r",
+              "pm.visualizer.set(template, constructVisualizerPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "free_user_3DiQVzZARZ6jeo32h7cIS9UQVkR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ronald\",\r\n  \"job\": \"Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Copy 4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var template = `\r",
+              "<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+              "\r",
+              "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+              "\r",
+              "<script>\r",
+              "    var ctx = document.getElementById(\"myChart\");\r",
+              "\r",
+              "    var myChart = new Chart(ctx, {\r",
+              "        type: \"bar\",\r",
+              "        data: {\r",
+              "            labels: [\"ID\", \"First Name\", \"Last Name\", \"Email\"],\r",
+              "            datasets: [{\r",
+              "                data: [],\r",
+              "                \r",
+              "                // Change these colours to customize the chart\r",
+              "                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+              "            }]\r",
+              "        },\r",
+              "        options: {\r",
+              "            legend: { display: false },\r",
+              "            title: {\r",
+              "                display: true,\r",
+              "                text: 'User Data Representation'\r",
+              "            },\r",
+              "            scales: {\r",
+              "                xAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Attributes'\r",
+              "                    }\r",
+              "                }],\r",
+              "                yAxes: [{\r",
+              "                    display: true,\r",
+              "                    scaleLabel: {\r",
+              "                        display: true,\r",
+              "                        labelString: 'Values'\r",
+              "                    }\r",
+              "                }]\r",
+              "            }\r",
+              "        }\r",
+              "\r",
+              "    });\r",
+              "\r",
+              "    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+              "    pm.getData(function (err, value) {\r",
+              "        myChart.data.datasets[0].data = value.response.dataValues;\r",
+              "        myChart.update();\r",
+              "    });\r",
+              "\r",
+              "</script>`;\r",
+              "\r",
+              "function constructVisualizerPayload() {\r",
+              "    var res = pm.response.json();\r",
+              "    \r",
+              "    var visualizerData = {\r",
+              "        dataValues: [\r",
+              "            res.data.id,\r",
+              "            res.data.first_name.length,\r",
+              "            res.data.last_name.length,\r",
+              "            res.data.email.length\r",
+              "        ]\r",
+              "    };\r",
+              "\r",
+              "    return {response: visualizerData};\r",
+              "}\r",
+              "\r",
+              "pm.visualizer.set(template, constructVisualizerPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "free_user_3DiQVzZARZ6jeo32h7cIS9UQVkR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ronald\",\r\n  \"job\": \"Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
